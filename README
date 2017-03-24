@@ -1,0 +1,26 @@
+---- About this program ----
+
+This program encrypts/decrypts an input file into an output using a given key.
+
+It is expected that the key is made of printable ASCII characters for this program to function.
+A description of each cipher is in the files in the doc directory.
+
+---- Usage ----
+
+Usage: ./PA1 <"B" or "S"> <input file> <output file> <keyfile> <"E" or "D">
+
+For the first argument a B tells the program to encrypt/decrypt using the block cipher.  This cipher
+requires that the key is exactly 8 characters long (this includes newlines).
+
+By contrast, a S will use the stream cipher in which a key of any size and at least one character
+can be used.
+
+The last argument informs the program if the input file is to be encrypted or decrypted.
+
+---- Compiling ----
+
+Run "make" in the project root directory.  A file name "PA1" will be in the root directory and can
+be run as described above.
+
+---- Testing ----
+Run "make test"  If there is any error make will return with an error code along with the error

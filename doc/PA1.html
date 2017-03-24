@@ -1,0 +1,191 @@
+<!--
+This file is the header file for the entire course website. Modifications to this file will reflect across all files for the course's website. Edit with care.
+
+Most editable regions marked with <!--Editable Area--/>Edit what's here<!--End Editable Area--/> (minus the / by the >'s)
+
+Author: Tar Ralph (tar3820@gmail.com)
+-->
+
+<html>
+  <head>
+		<!--Course Title area. These tags make the title of the page on the browser. Replace "Course Title" with the title of the course.-->
+    <title>CS 356: Assignments</title>
+
+		<!--Style sheet import. The sheet is linked to & imported to verify all browser support. The sheet controls all of the look & a majority of the layout of the site. Feel free to edit the sheet, or use another.
+    Note: Template 2 & 3 use the exact same head.php file, the only thing different is the style sheet referenced.-->
+    <link rel="StyleSheet" href="sheet3.css<!--Editable Area--><!--End Editable Area-->" title="StyleSheet1">
+		<!--Editable area within the style tag, within the single quotes of the import--> 
+		<STYLE TYPE="text/css" MEDIA="screen, projection">
+  		@import url('sheet3.css');
+		</STYLE>
+		<!--End Editable Area-->
+
+  </head>
+
+  <body>
+
+		<!--Beginning of the header for the website. Contains the main menu, the background color/image of the banner & the Course Title-->
+    <div id="header">
+	
+			<!--CSU logo-->
+  	  <img  align=right src="../Figures/glde_fr_med.gif" id="csuLogo">
+
+			<!--Main header for the site-->
+      <h2 id="courseTitle"><!--Editable Area-->
+	<font color=white>CS 430 DL: Assignments</font>
+	<!--End Editable Area--></h2>
+
+      <!--Main menu for the whole site. To add a new link, simply copy an existing one, paste it in the order you want & change the url & name of the link to the correct file path & name. Make sure class="menu_link" is set.-->
+<!--
+	<div id="main_menu">
+	<a href="../index.php" class="menu_link">Course Home Page</a>
+	<a href="../announcements.php" class="menu_link">Announcements</a>
+	<a href="../syllabus.php" class="menu_link">Syllabus</a>
+	<a href="../schedule.php" class="menu_link">Schedule</a>
+	<a href="../assignments.php" class="menu_link">Assignments</a>
+	<a href="../externalLinks.php" class="menu_link">External Links</a>
+	  </div>
+-->
+    </div>
+
+    <!--Beginning of the content for the page. This tag is required to start the content's div tag. Do not remove or place more tags below it.-->
+    <div id="content">
+
+<H2 id = "pageHeader"><font color=darkgreen>
+        Programming Assignment 1
+</font>
+</H2>
+<FONT COLOR=DARKRED>
+<H4>
+CS 356: Computer Security<BR>
+Version 1.1<br>
+</H4>
+</FONT>
+<HR NOSHADE SIZE=3 COLOR=DARKGREEN>
+<CENTER>
+<FONT COLOR=DARKRED>
+<H4><I>Due Date - 11:59PM Sunday, February 12<sup>th</sup></i> <BR>
+</FONT>
+</CENTER>
+<HR NOSHADE SIZE=3 COLOR=DARKGREEN>
+<P>
+<H2>Programming Assignment 1</H2>
+<P>
+The purpose of this assignment is to familiarize the students with the
+concept of block ciphers and stream cipher.  Block ciphers work on blocks
+of <i>n</i> bits at a time. Stream ciphers work on streams one bit at a time.
+Your program will read in an input file and apply the algorithms described
+below.  It will then generate an output file.
+
+
+<H3>Requirements</h3>
+
+<ol>
+<li>This program should be written in C or C++.
+<li>Your submittal should include a Makefile.
+<li>
+Your program will take 5 arguments in the order defined below.   
+Your program should ensure there are
+5 arguments, and that each argument is error-checked appropriately.
+<ul>
+<li>The first argument is either a 'B' or a 'S'.  
+<ul>
+<li>B means you will use your block cipher function 
+<li>S means you will use your stream cipher function.
+<li>Your program should terminate if other than a 'B' or an 'S' is entered with an appropriate error message.
+</ul>
+<li>The second argument is the input file name.
+<ul>
+<li>Your program should terminate with an appropriate error message
+if the file does not exist.
+</ul>
+<li>The third argument is the output file name.
+</ul>
+<li>The fourth argument is the keyfile</li>
+<ul>
+	<li>
+	The keyfile contains the symmetric key in ASCII format ("ABCDEFGH"). The keysize for Block Encryption Mode 
+	would be 64 bits (8 bytes) and can be of any length for Stream Encryption Mode. Your program will read in the contents of the keyfile and 
+	use it to encrypt the plaintext provided in the input file. The keyfile will not contain a terminating "\n"(newline) character.
+	</li>
+</ul>
+<li>The fifth argument is the 'mode of operation' which can be either 'E' for encryption or 'D' for decryption.</li>
+<ul>
+<li>
+Altough the same 'E' or 'D' module can be used for Stream Ciphers, the same does not apply for Block Ciphers as will be explained below in the 'Description of the algorithms' section.
+In the 'E' mode you would encrypt a plaintext using a key and produce a ciphertext. We can then evaluate your encrypted output against the output produced by our own program with the same key.
+Similarly, in the 'D' mode your program is expected to decrypt an already encrypted text, with the same symmetric key, and produce expected plaintext results.
+</li>
+</ul>
+<li>Your program will read in the input file.
+<ul>
+<li>
+End of line characters are data just like any other character.
+<li>
+You may assume the file is in multiples of 8 bits.
+</ul>
+<li>
+Your file will write the output file based on the arguments.
+<ul>
+<li>Your file should be in 64-bit blocks in block mode.
+<ul>
+<li>This means you must pad blocks that are not 64 bits in length.
+<li>Each padding byte should be 0X80. Because the input file will be a multiple of 8 bits or 1 byte, padding (if required) can also be done in multiples of 8 bits or 1 byte. For the purpose of this project
+you will be using the byte value 0X80 in hex or 128 in decimal. Becasue, the input file is in ASCII and the padding value (0X80) falls outside the ASCII (0-127) range, it allows us distinguish padding bytes from plaintext bytes.
+</ol>
+<li>Your file should be in 8-bit multiples in stream mode.
+<li>Your file will be read in by a program that isn't yours to test.
+<li>If the input file is empty, the output file should be empty.
+</ul>
+</ol>
+<h3>Description of the algorithms</h3>
+<h4>Block cipher</h4>
+<ol>
+<li>The <b>encryption</b> would be a three step process : pad (if required) -> encrypt (using XOR) -> swap
+<li>Your block size will be 64 bits. As mentioned earlier, if a block is found to be less than 64 bits, it should be padded with as many (0X80) bytes so as to make 64 bits or 8 bytes.
+<li>Your algorithm will XOR the 64 bit data block with the 64 bit key in a bitwise manner, i.e. each bit of the key starting from the left most bit will be XORed with each bit of a 64 bit data block, starting from the left hand side.
+<li>Your algorithm will then swap bytes of the XORed output using the following algorithm. 
+<ul>
+<li>Let 'start' and 'end' be pointers which point to the start and end of the XORed output string.
+<li>For each byte of the key, starting from the left most byte or 0th byte, you calculate the following : (ASCII value of the byte or character)mod2. This would give you either 0 or 1. 
+<li>If the value is 0 you do not swap anything and move to the next byte of the plaintext by incrementing the 'start' pointer. 
+Otherwise, you swap the byte pointed by the 'start' pointer with that pointed by the 'end' pointer. Then increment the 'start' pointer so that it points to the next higher byte and decrement the 'end' pointer so that it points to the next lower byte.
+If the keysize is exhausted, you restart from the first byte of the key. This process is carried on until the 'start' and the 'end' pointers collide. The swap process stops and produces the required encrypted output.  
+</ul>
+<li>The <b>decryption</b> process is also of three steps but proceeds in the reverse order as the encryption process : swap -> decrypt (using XOR) -> remove padding (if required). The decrypted ouput should be written to the output file.
+Because, the decryption process occurs in the reverse direction of the encryption process, you cannot use the same module to perform both, altough the underlying logic will be the same.
+</ol>
+<h4>Stream cipher</h4>
+<ol>
+<li>You will XOR your input stream with the following data
+<ul>
+<li>The key is (in Hex) "0123456789ABCDEF"
+<li>Bit 0 from the input file will be XORed with Bit 0 from the key
+<li>Bit 1 from the input file will be XORed with Bit 1 from the key
+<li>...
+<li>Bit n-1 from the input file will be XORed with Bit n-1 from the key
+</ul>
+<li>If you reach the end of the key, start over from the beginning.
+<li>Note on the number of the bits.  Since this is a stream, bit 0 is the
+first bit to arrive, bit 1 is the second bit and so forth.  That means the
+leftmost bit of the first byte is bit 0.  Same with the key.
+<li> Encryption and decryption will performed with the same module that you design for the Stream Cipher. In other words, you do not have have to design separate modules for encryption and decryption in the Stream Encryption Mode.
+</ol>
+
+<HR NOSHADE SIZE=3 COLOR=NAVY>
+<h3>What to turn in</h3>
+You should submit your makefile, your C or C++ programs, and a README
+to the assignment in Canvas.  Remember: It is your responsibility to test
+your on the state capital machines - that is where the TA will grade it.  
+<p>
+<HR NOSHADE SIZE=3 COLOR=NAVY>
+<FONT SIZE=2>
+<HR NOSHADE SIZE=3 COLOR=NAVY>
+<FONT COLOR=NAVY>
+<B>Copyright &#169 2014: Colorado State University for CS 356.</B>
+All rights reserved.
+</FONT>
+<HR NOSHADE SIZE=3 COLOR=NAVY>
+
+</BODY>
+</HTML>
